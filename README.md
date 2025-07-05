@@ -63,7 +63,6 @@ Optional integrations:
 ```
 public/                # public files
 src/
-├── assets/
 ├── components/        # UI elements (shadcn/ui-based)
 ├── pages/             # Routes like homepage, editor, explore
 ├── lib/               # Utility functions (e.g., cn.ts)
