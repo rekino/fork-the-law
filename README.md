@@ -1,69 +1,96 @@
-# React + TypeScript + Vite
+# 🌍 Fork the Law
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A civic platform for collaboratively reimagining constitutions. Inspired by the idea that people should be free to draft and share their vision for a better future.
 
-Currently, two official plugins are available:
+## 🧠 What is Fork the Law?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fork the Law is a web platform that lets people explore, edit, and share new versions of their constitution. Think of it as a collaborative code editor, but for laws and social contracts.
 
-## Expanding the ESLint configuration
+* 📜 Start from an existing constitution
+* ✍️ Fork and edit it like a developer edits code
+* 🔗 Share your version on social media
+* 🌐 Discover versions created by others
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project is not affiliated with any government or political entity. It's a **tool for civic imagination**.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🚀 Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+* Node.js 18+
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/rekino/fork-the-law.git
+cd fork-the-law
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Start Development Server
+
+```bash
+npm run dev
+```
+
+Then open `http://localhost:5173` in your browser.
+
+---
+
+## 🛠️ Tech Stack
+
+* **React** (with Vite)
+* **Tailwind CSS** for styling
+* **shadcn/ui** for accessible UI components
+* **TypeScript**
+
+Optional integrations:
+
+* [ ] i18n (Farsi & English)
+* [ ] Markdown-based constitution editing
+* [ ] Auth for publishing forks
+* [ ] Git-like diff engine
+
+## 📁 Folder Structure
+
+```
+public/                # public files
+src/
+├── components/        # UI elements (shadcn/ui-based)
+├── pages/             # Routes like homepage, editor, explore
+├── lib/               # Utility functions (e.g., cn.ts)
+├── assets/            # pictures and other assets
+└── main.tsx           # Entry point
+```
+
+---
+
+## ❤️ Contributing
+
+Pull requests welcome! Fork the repo and suggest a better structure, fix bugs, or improve the UI.
+
+1. Fork the repo
+2. Create your branch: `git checkout -b feature/your-feature`
+3. Commit and push
+4. Open a PR 🚀
+
+---
+
+## 📜 License
+
+MIT License — see [`LICENSE`](./LICENSE)
+
+---
+
+## 🙏 Acknowledgements
+
+* Tailwind CSS
+* shadcn/ui
+* Everyone who believes in the power of collaborative imagination
