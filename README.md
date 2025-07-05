@@ -4,7 +4,7 @@
 
 ## 🧠 What is Fork the Law?
 
-ForkTheLaw is a web platform that lets people explore, edit, and share new versions of their constitution. Think of it as a collaborative code editor, but for laws and social contracts.
+Fork the Law is a web platform that lets people explore, edit, and share new versions of their constitution. Think of it as a collaborative code editor, but for laws and social contracts.
 
 * 📜 Start from an existing constitution
 * ✍️ Fork and edit it like a developer edits code
