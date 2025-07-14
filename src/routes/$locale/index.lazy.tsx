@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 
-export const Route = createLazyFileRoute('/')({
+export const Route = createLazyFileRoute('/$locale/')({
   component: Index,
 })
 

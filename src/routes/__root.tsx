@@ -8,4 +8,10 @@ export const Route = createRootRoute({
       <Outlet />
     </>
   ),
+  notFoundComponent: () => (
+    <p>Not Found</p>
+  ),
+  loader: ({ params }) => {
+    console.log(params.locale)
+  }
 })
