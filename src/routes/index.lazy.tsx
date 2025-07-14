@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Trans } from "react-i18next"
+import { Trans, useTranslation } from "react-i18next"
 
 export const Route = createLazyFileRoute('/')({
   component: Index,
@@ -11,6 +11,7 @@ export const Route = createLazyFileRoute('/')({
 
 function Index() {
   const [search, setSearch] = useState("");
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
@@ -74,7 +75,7 @@ function Index() {
           <h2 className="text-2xl font-semibold"><Trans>Explore Community Versions</Trans></h2>
           <Input
             type="text"
-            placeholder="Search drafts..."
+            placeholder={t("Search drafts...")}
             className="max-w-sm"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -87,9 +88,9 @@ function Index() {
                 <h3 className="text-lg font-semibold">
                   <Trans>Constitution for a Free Iran</Trans>
                 </h3>
-                <p className="text-sm text-slate-600">by user{id}</p>
+                <p className="text-sm text-slate-600"><Trans>by user</Trans> {id}</p>
                 <Button variant="link" className="px-0">
-                  <Trans>View Changes</Trans> →
+                  <Trans>View Changes</Trans>
                 </Button>
               </CardContent>
             </Card>
