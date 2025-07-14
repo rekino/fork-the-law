@@ -11,32 +11,32 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
 
 const ConstitutionLazyRouteImport = createFileRoute('/constitution')()
+const IndexLazyRouteImport = createFileRoute('/')()
 
 const ConstitutionLazyRoute = ConstitutionLazyRouteImport.update({
   id: '/constitution',
   path: '/constitution',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/constitution.lazy').then((d) => d.Route))
-const IndexRoute = IndexRouteImport.update({
+const IndexLazyRoute = IndexLazyRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof IndexLazyRoute
   '/constitution': typeof ConstitutionLazyRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/': typeof IndexLazyRoute
   '/constitution': typeof ConstitutionLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/': typeof IndexLazyRoute
   '/constitution': typeof ConstitutionLazyRoute
 }
 export interface FileRouteTypes {
@@ -48,7 +48,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  IndexLazyRoute: typeof IndexLazyRoute
   ConstitutionLazyRoute: typeof ConstitutionLazyRoute
 }
 
@@ -65,14 +65,14 @@ declare module '@tanstack/react-router' {
       id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof IndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  IndexLazyRoute: IndexLazyRoute,
   ConstitutionLazyRoute: ConstitutionLazyRoute,
 }
 export const routeTree = rootRouteImport
