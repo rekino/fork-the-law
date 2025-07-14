@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import { Trans } from "react-i18next"
 
 export const Route = createLazyFileRoute('/$locale/')({
   component: Index,
@@ -17,7 +18,7 @@ function Index() {
       <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-24 py-24 bg-white shadow-md">
         <div className="max-w-xl space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Reimagine the Constitution
+            <Trans>Reimagine the Constitution</Trans>
           </h1>
           <p className="text-lg text-slate-600">
             What would a better future look like — if you could write it?<br />

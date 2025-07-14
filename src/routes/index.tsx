@@ -6,5 +6,5 @@ export const Route = createFileRoute('/')({
 })
 
 function RouteComponent() {
-  return <Navigate to='/en' />
+  return <Navigate to='/$locale' params={{ locale: 'en' }}/>
 }

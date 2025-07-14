@@ -6,6 +6,8 @@ import './index.css'
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
 
+import './i18n'
+
 // Create a new router instance
 const router = createRouter({ routeTree })
 
