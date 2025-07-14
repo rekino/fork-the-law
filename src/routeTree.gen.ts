@@ -13,61 +13,54 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 
-const LocaleIndexLazyRouteImport = createFileRoute('/$locale/')()
-const LocaleConstitutionLazyRouteImport = createFileRoute(
-  '/$locale/constitution',
-)()
+const ConstitutionLazyRouteImport = createFileRoute('/constitution')()
 
+const ConstitutionLazyRoute = ConstitutionLazyRouteImport.update({
+  id: '/constitution',
+  path: '/constitution',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/constitution.lazy').then((d) => d.Route))
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const LocaleIndexLazyRoute = LocaleIndexLazyRouteImport.update({
-  id: '/$locale/',
-  path: '/$locale/',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/$locale/index.lazy').then((d) => d.Route))
-const LocaleConstitutionLazyRoute = LocaleConstitutionLazyRouteImport.update({
-  id: '/$locale/constitution',
-  path: '/$locale/constitution',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/$locale/constitution.lazy').then((d) => d.Route),
-)
+} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/$locale/constitution': typeof LocaleConstitutionLazyRoute
-  '/$locale': typeof LocaleIndexLazyRoute
+  '/constitution': typeof ConstitutionLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/$locale/constitution': typeof LocaleConstitutionLazyRoute
-  '/$locale': typeof LocaleIndexLazyRoute
+  '/constitution': typeof ConstitutionLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/$locale/constitution': typeof LocaleConstitutionLazyRoute
-  '/$locale/': typeof LocaleIndexLazyRoute
+  '/constitution': typeof ConstitutionLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$locale/constitution' | '/$locale'
+  fullPaths: '/' | '/constitution'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$locale/constitution' | '/$locale'
-  id: '__root__' | '/' | '/$locale/constitution' | '/$locale/'
+  to: '/' | '/constitution'
+  id: '__root__' | '/' | '/constitution'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LocaleConstitutionLazyRoute: typeof LocaleConstitutionLazyRoute
-  LocaleIndexLazyRoute: typeof LocaleIndexLazyRoute
+  ConstitutionLazyRoute: typeof ConstitutionLazyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/constitution': {
+      id: '/constitution'
+      path: '/constitution'
+      fullPath: '/constitution'
+      preLoaderRoute: typeof ConstitutionLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -75,27 +68,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/$locale/': {
-      id: '/$locale/'
-      path: '/$locale'
-      fullPath: '/$locale'
-      preLoaderRoute: typeof LocaleIndexLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/$locale/constitution': {
-      id: '/$locale/constitution'
-      path: '/$locale/constitution'
-      fullPath: '/$locale/constitution'
-      preLoaderRoute: typeof LocaleConstitutionLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LocaleConstitutionLazyRoute: LocaleConstitutionLazyRoute,
-  LocaleIndexLazyRoute: LocaleIndexLazyRoute,
+  ConstitutionLazyRoute: ConstitutionLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

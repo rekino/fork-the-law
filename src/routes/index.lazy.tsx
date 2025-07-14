@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Trans } from "react-i18next"
 
-export const Route = createLazyFileRoute('/$locale/')({
+export const Route = createLazyFileRoute('/')({
   component: Index,
 })
 
