@@ -1,7 +1,9 @@
 import { IconWorld } from "@tabler/icons-react"
 import { Button } from "@/components/ui/button"
+import { Link, useParams } from "@tanstack/react-router"
 
 export default function Navbar() {
+  const params = useParams({ strict: false })
 
   return (
     <nav className="bg-white shadow-md border-b">
@@ -37,10 +39,10 @@ export default function Navbar() {
             <div className="flex items-center space-x-2">
               <IconWorld className="h-4 w-4 text-slate-600" />
               <Button variant="link" size="sm">
-                <a href="/en">English</a>
+                <Link to="." params={{...params, locale: 'en' }}>English</Link>
               </Button>
               <Button variant="link" size="sm">
-                <a href="/fa">فارسی</a>
+                <Link to="." params={{...params, locale: 'fa' }}>فارسی</Link>
               </Button>
             </div>
           </div>

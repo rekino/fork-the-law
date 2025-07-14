@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { createRouter, RouterProvider, createMemoryHistory } from '@tanstack/react-router'
 import { describe, it, expect } from 'vitest'
-import { routeTree } from './routeTree.gen'
+import { routeTree } from '../src/routeTree.gen'
 
 const createTestRouter = (initialUrl: string) => {
   return createRouter({
