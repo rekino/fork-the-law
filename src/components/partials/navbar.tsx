@@ -12,7 +12,7 @@ export default function Navbar() {
           {/* Logo/Brand */}
           <div className="flex items-center">
             <h1 className="text-xl font-bold text-slate-800">
-              Constitution Editor
+              Fork the Law
             </h1>
           </div>
 
