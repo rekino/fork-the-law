@@ -64,10 +64,10 @@ Optional integrations:
 public/                # public files
 src/
 ├── components/        # UI elements (shadcn/ui-based)
-├── pages/             # Routes like homepage, editor, explore
-├── lib/               # Utility functions (e.g., cn.ts)
-├── assets/            # pictures and other assets
+├── routes/            # Routes like homepage, editor, explore
+├── lib/               # Utility functions
 └── main.tsx           # Entry point
+tests/                 # unit tests
 ```
 
 ---
